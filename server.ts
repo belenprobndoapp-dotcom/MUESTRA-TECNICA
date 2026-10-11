@@ -29,8 +29,7 @@ const ai = new GoogleGenAI({
 
 // Priority list of models to ensure 100% uptime:
 // If gemini-flash-latest has a momentary spike, fallback to gemini-3.1-flash-lite, then gemini-3.8-flash
-const CANDIDATE_MODELS = ['gemini-flash-latest', 'gemini-3.1-flash-lite', 'gemini-3.8-flash'];
-
+const CANDIDATE_MODELS = ['gemini-2.5-flash'];
 /**
  * High-fidelity fallback report generator when upstream AI providers experience temporary outages or 503 spikes.
  * Guarantees that the school booth/stand never stops serving clients.

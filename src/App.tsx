@@ -7,8 +7,6 @@ import { CelebrityCatalogModal } from './components/CelebrityCatalogModal';
 import { ShareModal } from './components/ShareModal';
 import { HistoryModal } from './components/HistoryModal';
 import { VisagismReport } from './types/visagism';
-import { DEMO_PRESETS } from './data/celebrities';
-import {
   saveDiagnosisToHistory,
   getDiagnosisHistory,
   deleteDiagnosisFromHistory,

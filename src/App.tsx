@@ -238,7 +238,7 @@ export default function App() {
 
       {/* Celebrity Gallery Modal */}
       <CelebrityCatalogModal
-        isOpen={isCelebrityCatalogOpen}
+        isOpen={false}
         onClose={() => setIsCelebrityCatalogOpen(false)}
       />
 

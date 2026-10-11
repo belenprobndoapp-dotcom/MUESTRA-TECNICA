@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #0c0a09;
+    color: #f5f5f4;
+  }
+}
+
+/* Stand and Haute Coiffure Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #292524;
+  border-radius: 9999px;
+  border: 2px solid #0c0a09;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* ===================================================
+   PRINT STYLES: EXACTLY 1 SINGLE PAGE (UNA SOLA HOJA)
+   - Zero black/dark backgrounds (ink and toner saving)
+   - Deep slate/charcoal high-contrast legible typography
+   - Strict margins and compact grid: Fits 100% on 1 sheet
+   - Focused on recommended hair example photos
+   =================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+
+  html, body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide interactive screen-only controls */
+  .no-print,
+  header,
+  nav,
+  button,
+  .sticky {
+    display: none !important;
+  }
+
+  /* Explicit 2-Page Print Breaks */
+  .print-page-1 {
+    page-break-after: always !important;
+    break-after: page !important;
+    margin-bottom: 0 !important;
+  }
+
+  .print-page-2 {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 0 !important;
+  }
+
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    display: block !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  /* Printable container strictly formatted for 2 clean sheets */
+  #printable-visagism-dossier,
+  #printable-dossier {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove all black and heavy gradient backgrounds */
+  #printable-visagism-dossier div,
+  #printable-visagism-dossier section,
+  #printable-visagism-dossier article,
+  #printable-visagism-dossier footer,
+  #printable-dossier div,
+  #printable-dossier section,
+  #printable-dossier article,
+  #printable-dossier footer {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* High contrast legible typography: Smaller Title & Larger Explanations */
+  #printable-visagism-dossier h1,
+  #printable-dossier h1 {
+    color: #0f172a !important;
+    font-size: 11pt !important; /* Smaller report title */
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+  }
+
+  #printable-visagism-dossier h2,
+  #printable-dossier h2 {
+    color: #0f172a !important;
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+  }
+
+  #printable-visagism-dossier h3,
+  #printable-dossier h3 {
+    color: #0f172a !important;
+    font-size: 9.5pt !important;
+    font-weight: 700 !important;
+  }
+
+  #printable-visagism-dossier h4,
+  #printable-dossier h4 {
+    color: #0f172a !important;
+    font-size: 9pt !important;
+    font-weight: 700 !important;
+  }
+
+  /* Explanations: larger, readable font size (9pt), perfectly bounded */
+  #printable-visagism-dossier p,
+  #printable-visagism-dossier span,
+  #printable-visagism-dossier li,
+  #printable-visagism-dossier td,
+  #printable-dossier p,
+  #printable-dossier span,
+  #printable-dossier li,
+  #printable-dossier td {
+    color: #1e293b !important;
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    word-break: break-word !important;
+  }
+
+  /* Keep all card boxes strictly contained without overflow */
+  #printable-visagism-dossier div,
+  #printable-visagism-dossier section,
+  #printable-visagism-dossier article,
+  #printable-dossier div,
+  #printable-dossier section,
+  #printable-dossier article {
+    overflow: hidden !important;
+  }
+
+  /* Comfortable section spacing across the 2 pages */
+  #printable-visagism-dossier > div,
+  #printable-dossier > div {
+    margin-bottom: 3.5mm !important;
+    padding: 3.5mm 4.5mm !important;
+    border-radius: 8px !important;
+  }
+
+  /* Hide raw selfie upload in print so only recommended hair photos are shown */
+  #sec-morfologia .lg\:col-span-5 {
+    display: none !important;
+  }
+
+  #sec-morfologia .lg\:col-span-7 {
+    grid-column: span 12 !important;
+    width: 100% !important;
+  }
+
+  /* Clean light slate borders */
+  #printable-visagism-dossier *,
+  #printable-dossier * {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Text accents in print */
+  #printable-visagism-dossier .text-amber-200,
+  #printable-visagism-dossier .text-amber-300,
+  #printable-visagism-dossier .text-amber-400,
+  #printable-visagism-dossier .text-amber-500,
+  #printable-dossier .text-amber-200,
+  #printable-dossier .text-amber-300,
+  #printable-dossier .text-amber-400,
+  #printable-dossier .text-amber-500 {
+    color: #b45309 !important;
+    font-weight: 700 !important;
+  }
+
+  #printable-visagism-dossier .text-rose-300,
+  #printable-visagism-dossier .text-rose-400,
+  #printable-dossier .text-rose-300,
+  #printable-dossier .text-rose-400 {
+    color: #be123c !important;
+    font-weight: 700 !important;
+  }
+
+  #printable-visagism-dossier .text-stone-300,
+  #printable-visagism-dossier .text-stone-400,
+  #printable-dossier .text-stone-300,
+  #printable-dossier .text-stone-400 {
+    color: #475569 !important;
+  }
+
+  /* Subtle card background tints for print */
+  #printable-visagism-dossier .bg-amber-500\/5,
+  #printable-visagism-dossier .bg-amber-500\/10,
+  #printable-visagism-dossier .bg-amber-50,
+  #printable-dossier .bg-amber-500\/5,
+  #printable-dossier .bg-amber-500\/10,
+  #printable-dossier .bg-amber-50 {
+    background-color: #fefce8 !important;
+  }
+
+  #printable-visagism-dossier .bg-rose-500\/10,
+  #printable-visagism-dossier .bg-rose-950\/30,
+  #printable-dossier .bg-rose-500\/10,
+  #printable-dossier .bg-rose-950\/30 {
+    background-color: #fff1f2 !important;
+  }
+
+  #printable-visagism-dossier .bg-stone-900\/60,
+  #printable-visagism-dossier .bg-stone-950\/60,
+  #printable-visagism-dossier .bg-stone-950\/80,
+  #printable-dossier .bg-stone-900\/60,
+  #printable-dossier .bg-stone-950\/60,
+  #printable-dossier .bg-stone-950\/80 {
+    background-color: #f8fafc !important;
+  }
+
+  /* Photos of recommended hair in print: clean and aligned on Page 1 */
+  #sec-cabellos-ejemplo img {
+    max-height: 95px !important;
+    height: 95px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    filter: none !important;
+  }
+
+  #sec-cabellos-ejemplo .grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 4mm !important;
+  }
+
+  /* Signatures section on Page 2 */
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    padding-top: 4mm !important;
+    margin-top: 4mm !important;
+  }
+}

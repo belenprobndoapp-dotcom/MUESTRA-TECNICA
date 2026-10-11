@@ -1,0 +1,6 @@
+{
+  "name": "AuraVisage Studio Pro - Análisis Facial & Colorimetría VIP",
+  "description": "Plataforma interactiva de diagnóstico morfológico facial, subtono de piel, colorimetría capilar profesional, técnicas de corte y fórmulas de tintes para stands y salones de alta gama.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

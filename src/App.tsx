@@ -9,8 +9,6 @@ import { HistoryModal } from './components/HistoryModal';
 import { VisagismReport } from './types/visagism';
 import { saveDiagnosisToHistory, getDiagnosisHistory, deleteDiagnosisFromHistory, clearDiagnosisHistory } from './utils/historyStorage';
 import { AlertCircle, RefreshCw } from 'lucide-react';
-import { AlertCircle, RefreshCw } from 'lucide-react';
-
 export default function App() {
   const [report, setReport] = useState<VisagismReport | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
